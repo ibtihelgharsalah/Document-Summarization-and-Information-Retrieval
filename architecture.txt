@@ -1,0 +1,24 @@
+clarITy/
+    app.py 
+    NLP_preprocessing/
+        __init__.py
+        text_extraction.py 
+        language_detection.py
+        data_cleaning.py
+        tf_idf_vectorizer.py
+
+    NLP_tasks/
+        __init__.py
+        k_means_clustering.py
+        relevant_doc_retrieval.py
+        QA.py
+
+    utils/
+        __init__.py
+        allowed_extention.py
+        sw_removal.py
+        pnc_removal.py
+
+    templates/
+        upload.html
+        uploaded.html

@@ -1,0 +1,7 @@
+pandas
+sklearn
+nltk
+python-docx
+openpyxl
+pyPDF2
+

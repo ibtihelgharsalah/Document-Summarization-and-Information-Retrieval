@@ -1,0 +1,17 @@
+<!-- redirect the user to a new page that displays the uploaded files or provides other options for the user -->
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Uploaded Files</title>
+  </head>
+  <body>
+    <h1>Your Uploaded Files</h1>
+    <ul>
+      {% for file in files %}
+      <li><a href="{{ url_for('uploaded_files', filename=file) }}">{{ file }}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
