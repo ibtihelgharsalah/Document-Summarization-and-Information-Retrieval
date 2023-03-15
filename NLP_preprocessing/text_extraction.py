@@ -9,7 +9,7 @@ from utils.allowed_extention import allowed_file
 # Function to preprocess the uploaded files
 def extract_text(upload_folder, filenames):   
     # Create an empty list to store the document texts
-    doc_texts = []
+    doc_texts = {}
     # Loop over the uploaded files and extract text within each file 
     for filename in filenames:  
         if allowed_file(filename):
@@ -21,14 +21,14 @@ def extract_text(upload_folder, filenames):
                     pdf = PyPDF2.PdfReader(f)
                     # Extract the text from the PDF document
                     text = '\n'.join([pdf.pages[i].extract_text() for i in range(len(pdf.pages))])
-                    doc_texts.append(text)
+                    doc_texts[filename] = text
 
             elif ex == ".docx":
                 # Load the Word document
                 doc = docx.Document(os.path.join(upload_folder, filename))
                 # Extract the text from the document
                 text = '\n'.join([para.text for para in doc.paragraphs])
-                doc_texts.append(text)
+                doc_texts[filename] = text
 
             elif ex in ['.xls', '.xlsx']:
                 # Load the entire workbook
@@ -41,7 +41,7 @@ def extract_text(upload_folder, filenames):
                         for cell in row:
                             if cell is not None:
                                 xlsx_text += str(cell) + " "
-                doc_texts.append(xlsx_text)
+                doc_texts[filename] = xlsx_text
 
             elif ex == ".csv":
                 # Open the CSV file and read the contents
@@ -51,12 +51,12 @@ def extract_text(upload_folder, filenames):
                     csv_text = ""
                     for row in reader:
                         csv_text += ",".join(row) + " "
-                    doc_texts.append(csv_text)
+                    doc_texts[filename] = csv_text
 
             elif ex == ".txt": #(text file)
                 # Read the contents of the file
                 with open(os.path.join(upload_folder, filename), 'r') as f:
                     text = f.read()
-                    doc_texts.append(text)
+                    doc_texts[filename] = text
         else : print ("file not allowed")
     return doc_texts

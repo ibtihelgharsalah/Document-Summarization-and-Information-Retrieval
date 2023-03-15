@@ -19,33 +19,50 @@ UPLOAD_FOLDER = 'uploads' # 'uploads' is a folder on the server
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 filenames = os.listdir(UPLOAD_FOLDER)
 
-doc_texts= extract_text(app.config['UPLOAD_FOLDER'], filenames)
-eng_texts, fr_texts, other_langs = detect_language(doc_texts)
-eng_cleaned = eng_clean(eng_texts)
-fr_cleaned = fr_clean(fr_texts)
+# doc_texts = extract_text(app.config['UPLOAD_FOLDER'], filenames)
+# eng_texts, fr_texts, other_langs = detect_language(doc_texts)
+# eng_cleaned = eng_clean(eng_texts)
+# fr_cleaned = fr_clean(fr_texts)
 
 # Main route to display the upload form (ask the user to upload files)
 @app.route('/', methods=['GET', 'POST'])
 def upload_files():
+    # Remove all files from the UPLOAD_FOLDER directory from previous run
+    for file_name in os.listdir(app.config['UPLOAD_FOLDER']):
+        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], file_name))
     if request.method == 'POST':
         # Get the files from the request object
-        files = request.files.getlist('files[]')
+        files = request.files.getlist('files[]') # The getlist() method is used to retrieve multiple files submitted under the same name 'files[]'.
         # Loop through each file and save it to the server's folder ('uploads') if the file has an allowed extension
         for file in files:
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            if file and allowed_file(file.filename): # if file is not empty and has an allowed extension.
+                filename = secure_filename(file.filename) # convert the filename into a secure version, without any potentially malicious characters
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) # save the file to the server's folder called 'UPLOAD_FOLDER'
         # redirects the user to the uploaded_files() route
         return redirect(url_for('uploaded_files'))
-    
+    # if the request method is GET
     # displays an HTML form that allows the user to select and upload files to the server.
     return render_template('upload.html') 
 
-# Route to display the uploaded files
-@app.route('/uploads')
+# # Route to display the uploaded files
+# @app.route('/uploads')
+# def uploaded_files():
+#     files = os.listdir(app.config['UPLOAD_FOLDER'])
+#     return render_template('uploaded.html', files=files)
+
+
+# Route to display the uploaded files by language
+@app.route('/uploads') # will only handle GET requests by default
 def uploaded_files():
+    # Get the filenames of the uploaded files
     files = os.listdir(app.config['UPLOAD_FOLDER'])
-    return render_template('uploaded.html', files=files)
+    # Extract the text from each uploaded file
+    doc_texts = extract_text(app.config['UPLOAD_FOLDER'], files)
+    # Classify the uploaded files by language
+    eng_files, fr_files, other_files  = detect_language(doc_texts)
+    # Render the template and pass in the lists of filenames by language
+    return render_template('uploaded.html', eng_files=eng_files, fr_files=fr_files, other_files=other_files)
+
 
 # # Route to fetch the uploaded files and extract information to answer each question on the html page
 # @app.route('/answer', methods=['GET'])

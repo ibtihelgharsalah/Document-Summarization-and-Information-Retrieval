@@ -1,4 +1,5 @@
-<!-- redirect the user to a new page that displays the uploaded files or provides other options for the user -->
+<!-- redirect the user to a new page that displays the uploaded files classified by language 
+  and provides other options for the user -->
 
 <!doctype html>
 <html>
@@ -8,10 +9,20 @@
   </head>
   <body>
     <h1>Your Uploaded Files</h1>
-    <ul>
-      {% for file in files %}
-      <li><a href="{{ url_for('uploaded_files', filename=file) }}">{{ file }}</a></li>
-      {% endfor %}
-    </ul>
+    
+    <h2>English files:</h2>
+    {% for file in eng_files %}
+      <p>{{ file }}</p>
+    {% endfor %}
+    
+    <h2>French files:</h2>
+    {% for file in fr_files %}
+      <p>{{ file }}</p>
+    {% endfor %}
+    
+    <h2>Other files:</h2>
+    {% for file in other_files %}
+      <p>{{ file }}</p>
+    {% endfor %}
   </body>
 </html>
