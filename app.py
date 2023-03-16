@@ -4,13 +4,13 @@
 
 # BACKEND : server-side
 import os # used to read and write files to the server's file system
-from flask import Flask, request, jsonify, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
 from NLP_preprocessing.text_extraction import extract_text
 from NLP_preprocessing.language_detection import detect_language
-from NLP_preprocessing.data_cleaning import eng_clean, fr_clean
 from NLP_preprocessing.language_detection import detect_language
 from utils.allowed_extention import allowed_file
+from NLP_tasks.tfidf_kmeans import group_by_topic_english, group_by_topic_french
 
 app = Flask(__name__)
 
@@ -44,12 +44,6 @@ def upload_files():
     # displays an HTML form that allows the user to select and upload files to the server.
     return render_template('upload.html') 
 
-# # Route to display the uploaded files
-# @app.route('/uploads')
-# def uploaded_files():
-#     files = os.listdir(app.config['UPLOAD_FOLDER'])
-#     return render_template('uploaded.html', files=files)
-
 
 # Route to display the uploaded files by language
 @app.route('/uploads') # will only handle GET requests by default
@@ -59,12 +53,30 @@ def uploaded_files():
     # Extract the text from each uploaded file
     doc_texts = extract_text(app.config['UPLOAD_FOLDER'], files)
     # Classify the uploaded files by language
-    eng_files, fr_files, other_files  = detect_language(doc_texts)
-    # Render the template and pass in the lists of filenames by language
-    return render_template('uploaded.html', eng_files=eng_files, fr_files=fr_files, other_files=other_files)
+    eng_files, fr_files, other_language_files  = detect_language(doc_texts)
+    # Group the English and French files by topic
+    eng_topics = group_by_topic_english(eng_files)
+    fr_topics = group_by_topic_french(fr_files)
+    # Render the template and pass in the lists of filenames by language and topic
+    return render_template('uploaded.html', eng_files=eng_files.keys(), fr_files=fr_files.keys(),
+                            other_files=other_language_files.keys(), eng_topics=eng_topics, fr_topics=fr_topics)
 
 
-# # Route to fetch the uploaded files and extract information to answer each question on the html page
+@app.route('/question_answering')
+def question_answering():
+    # code to display the IT understanding form goes here
+    return render_template('question_answering.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    
+    
+    
+    
+    
+    
+    
+    # # Route to fetch the uploaded files and extract information to answer each question on the html page
 # @app.route('/answer', methods=['GET'])
 # def question_answering():
 #     # Get the filenames of the uploaded files
@@ -102,6 +114,3 @@ def uploaded_files():
 
 #     # Return the answer as a JSON response
 #     return jsonify({'answer': answer})
-
-if __name__ == '__main__':
-    app.run(debug=True)

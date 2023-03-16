@@ -18,4 +18,4 @@ def detect_language (doc_texts):
             except LangDetectException:
                 # Catch LangDetectException and skip to the next document
                 continue
-    return list(eng_texts.keys()), list(fr_texts.keys()), list(other_langs.keys())
+    return eng_texts, fr_texts, other_langs

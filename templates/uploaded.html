@@ -9,20 +9,39 @@
   </head>
   <body>
     <h1>Your Uploaded Files</h1>
-    
+
     <h2>English files:</h2>
-    {% for file in eng_files %}
-      <p>{{ file }}</p>
+    <ul>
+    {% for topic, files in eng_topics.items() %}
+      <li>{{ topic }}:
+        <ul>
+        {% for file in files %}
+          <li>{{ file }}</li>
+        {% endfor %}
+        </ul>
+      </li>
     {% endfor %}
-    
+    </ul>
+
     <h2>French files:</h2>
-    {% for file in fr_files %}
-      <p>{{ file }}</p>
+    <ul>
+    {% for topic, files in fr_topics.items() %}
+      <li>{{ topic }}:
+        <ul>
+        {% for file in files %}
+          <li>{{ file }}</li>
+        {% endfor %}
+        </ul>
+      </li>
     {% endfor %}
+    </ul>
     
-    <h2>Other files:</h2>
+    <h2>Other-language files:</h2>
+    <ul>
     {% for file in other_files %}
-      <p>{{ file }}</p>
+      <li>{{ file }}</li>
     {% endfor %}
+    </ul>
+  <a href="{{ url_for('question_answering') }}" target="_blank" class="btn btn-primary"><button>Go to IT Understanding Form</button></a>
   </body>
 </html>
