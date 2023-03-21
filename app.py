@@ -19,10 +19,8 @@ UPLOAD_FOLDER = 'uploads' # 'uploads' is a folder on the server
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 filenames = os.listdir(UPLOAD_FOLDER)
 
-# doc_texts = extract_text(app.config['UPLOAD_FOLDER'], filenames)
-# eng_texts, fr_texts, other_langs = detect_language(doc_texts)
-# eng_cleaned = eng_clean(eng_texts)
-# fr_cleaned = fr_clean(fr_texts)
+
+
 
 # Main route to display the upload form (ask the user to upload files)
 @app.route('/', methods=['GET', 'POST'])
@@ -45,7 +43,9 @@ def upload_files():
     return render_template('upload.html') 
 
 
-# Route to display the uploaded files by language
+
+
+# Route to display the uploaded files classified by language and by topic
 @app.route('/uploads') # will only handle GET requests by default
 def uploaded_files():
     # Get the filenames of the uploaded files
@@ -62,6 +62,8 @@ def uploaded_files():
                             other_files=other_language_files.keys(), eng_topics=eng_topics, fr_topics=fr_topics)
 
 
+
+
 @app.route('/question_answering')
 def question_answering():
     # code to display the IT understanding form goes here
@@ -76,11 +78,14 @@ if __name__ == '__main__':
     
     
     
-    # # Route to fetch the uploaded files and extract information to answer each question on the html page
+    
+# # Route to fetch the uploaded files and extract information to answer each question on the html page
 # @app.route('/answer', methods=['GET'])
 # def question_answering():
 #     # Get the filenames of the uploaded files
 #     files = os.listdir(app.config['UPLOAD_FOLDER'])
+#     # Extract the text from each uploaded file
+#     doc_texts = extract_text(app.config['UPLOAD_FOLDER'], files)
 #     # Preprocess the uploaded files
 #     preprocessed_files = preprocess_files(files)
 #     # Get the questions from the HTML form

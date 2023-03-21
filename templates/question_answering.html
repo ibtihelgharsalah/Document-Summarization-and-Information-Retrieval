@@ -2,9 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>File Upload</title>
+    <title>question answering</title>
   </head>
   <body>
-    <h1>IT understanding</h1>
+    <h1>IT Understanding Questions</h1>
+
+    <!-- List of questions -->
+    <ol>
+      <li>
+        Quest 1: .......?
+        <button type="button" onclick="showDocuments(1)">Relevant Documents</button>
+        <button type="button" onclick="showAnswer(1)">Answer</button>
+      </li>
+      <li>
+        Quest 2: .......?
+        <button type="button" onclick="showDocuments(2)">Relevant Documents</button>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <!-- Add more questions here -->
+    </ol>
+
+    <!-- Container to display relevant documents -->
+    <div id="documents-container"></div>
+
+    <!-- Container to display answers -->
+    <div id="answer-container"></div>
+
   </body>
 </html>
