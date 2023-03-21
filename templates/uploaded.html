@@ -16,7 +16,7 @@
       <li>{{ topic }}:
         <ul>
         {% for file in files %}
-          <li>{{ file }}</li>
+          <li><a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a></li>
         {% endfor %}
         </ul>
       </li>
@@ -29,7 +29,7 @@
       <li>{{ topic }}:
         <ul>
         {% for file in files %}
-          <li>{{ file }}</li>
+          <li><a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a></li>
         {% endfor %}
         </ul>
       </li>
@@ -39,7 +39,7 @@
     <h2>Other-language files:</h2>
     <ul>
     {% for file in other_files %}
-      <li>{{ file }}</li>
+      <li><a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a></li>
     {% endfor %}
     </ul>
   <a href="{{ url_for('question_answering') }}" target="_blank" class="btn btn-primary"><button>Go to IT Understanding Form</button></a>
