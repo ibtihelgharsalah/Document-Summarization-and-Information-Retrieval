@@ -13,10 +13,15 @@
     <h2>English files:</h2>
     <ul>
     {% for topic, files in eng_topics.items() %}
+      <br>
       <li>{{ topic }}:
         <ul>
         {% for file in files %}
-          <li><a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a></li>
+          <li>
+            <a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a>
+            <br>
+            {{ eng_summaries[file] }}
+          </li>
         {% endfor %}
         </ul>
       </li>
@@ -25,16 +30,21 @@
 
     <h2>French files:</h2>
     <ul>
-    {% for topic, files in fr_topics.items() %}
-      <li>{{ topic }}:
-        <ul>
-        {% for file in files %}
-          <li><a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a></li>
-        {% endfor %}
-        </ul>
-      </li>
-    {% endfor %}
-    </ul>
+      {% for topic, files in fr_topics.items() %}
+        <br>
+        <li>{{ topic }}:
+          <ul>
+          {% for file in files %}
+            <li>
+              <a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a>
+              <br>
+              {{ fr_summaries[file] }}
+            </li>
+          {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+      </ul>
     
     <h2>Other-language files:</h2>
     <ul>

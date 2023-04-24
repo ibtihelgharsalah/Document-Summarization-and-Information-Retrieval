@@ -3,23 +3,288 @@
   <head>
     <meta charset="UTF-8">
     <title>question answering</title>
+    <script>
+		function show_relevant_docs(id) {
+			var relatedDocs = document.getElementById(id);
+			if (relatedDocs.style.display === "none") {
+				relatedDocs.style.display = "block";
+			} else {
+				relatedDocs.style.display = "none";
+			}
+		}
+	</script>
   </head>
+  
   <body>
-    <h1>IT Understanding Questions</h1>
-
+    <h1>IT Understanding Form</h1>
+    <ol type="1">
     <!-- List of questions -->
-    <ol>
+      <h2>I.	Les systèmes IT utilisés par l'entité pour le reporting financier et métiers :</h2><br>
+      <button type="button" onclick="show_relevant_docs('d0')">Relevant docs</button>
+      <div id="d0" style="display: none;">
+        <ul>
+          {% for doc in d0 %}
+            <li>{{ doc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <h2>II.	Compréhension des systèmes IT de l entité :</h2><br>
+      <button type="button" onclick="show_relevant_docs('d1')">Relevant docs</button>
+      <div id="d1" style="display: none;">
+        <ul>
+          {% for doc in d1 %}
+            <li>{{ doc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
       <li>
-        Quest 1: .......?
-        <button type="button" onclick="showDocuments(1)">Relevant Documents</button>
+        Liste des systèmes d'information utilisés dans l'information financière :
+        Nom / Objectif / Process Métier / Module / Interfaçage / Mise à jour, adaptation ou changement / 
+        Niveau d'externalisation / Type / Editeur / Integrateur / Etat / Date Mise en Production / 
+        Administrateur système / Administrateur métier / Version OS / Version BDD :
+        <br>
         <button type="button" onclick="showAnswer(1)">Answer</button>
       </li>
+      <br>
       <li>
-        Quest 2: .......?
-        <button type="button" onclick="showDocuments(2)">Relevant Documents</button>
+        Les Informations concernant les mises à jour ou changements important si existants :
+        <br>
         <button type="button" onclick="showAnswer(2)">Answer</button>
       </li>
-      <!-- Add more questions here -->
+      <br>
+      <li>
+        IT System Diagram _ISD_ :
+        <br>
+        <button type="button" onclick="showAnswer(3)">Answer</button>
+      </li>
+      <br>
+      <h2>III.	Compréhension de l organisation IT:</h2><br>
+      <button type="button" onclick="show_relevant_docs('d2')">Relevant docs</button>
+      <div id="d2" style="display: none;">
+        <ul>
+          {% for doc in d2 %}
+            <li>{{ doc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <li>
+        Les membres clés de l organisation IT :
+        Nom / Poste / Localisation :
+        <br>
+        <button type="button" onclick="showAnswer(4)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Fonctions clés de l organisation IT :
+        Services / Activités principales de chaque service :
+        <br>
+        <button type="button" onclick="showAnswer(5)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Membres clés de l équipe de l organisation IT :
+        <br>
+        <button type="button" onclick="showAnswer(6)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Les éléments externalisés 
+        Fournisseur de service externalisé / Service externalisé / Process supporté
+        <br>
+        <button type="button" onclick="showAnswer(7)">Answer</button>
+      </li>
+      <br>
+      <li>
+        domaines d'intervention, compétences exigées, objectifs, méthode de supervision, clause d'audit … 
+        -	Document to inspect : les contrats de prestations IT
+        <br>
+        <button type="button" onclick="showAnswer(8)">Answer</button>
+      </li>
+      <br>
+      <li>
+        des preuves de la supervision des prestataires par l'entité / résultats des audits chez les prestataires.
+        <br>
+        <button type="button" onclick="showAnswer(9)">Answer</button>
+      </li>
+      <br>
+      <h2>IV.	Compréhension des process IT de l entité :</h2><br>
+      <button type="button" onclick="show_relevant_docs('d3')">Relevant docs</button>
+      <div id="d3" style="display: none;">
+        <ul>
+          {% for doc in d3 %}
+            <li>{{ doc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <li>
+        L accès aux programmes et aux données  
+        -	Document to inspect : la procédure de gestion des accès
+        -	Document to inspect : la politique de mot de passe
+        <br>
+        <button type="button" onclick="showAnswer(10)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Les changements applicatifs 
+        -	Document to inspect : la procédure de gestion des changements
+        <br>
+        <button type="button" onclick="showAnswer(11)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Acquisitions / développements de nouveaux systèmes
+        -	Document to inspect :  la méthodologie de développement de nouveaux systèmes
+        <br>
+        <button type="button" onclick="showAnswer(12)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Les opérations informatiques 
+        -	Document to inspect :  les procédures de supervision de l'exploitation IT
+        <br>
+        <button type="button" onclick="showAnswer(13)">Answer</button>
+      </li>
+      <br>
+      <h2>V.	Cybersecurity :</h2><br>
+      <button type="button" onclick="show_relevant_docs('d4')">Relevant docs</button>
+      <div id="d4" style="display: none;">
+        <ul>
+          {% for doc in d4 %}
+            <li>{{ doc }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <li>
+        Les personnes responsables en sécurité de système d information:
+        <br>
+        <button type="button" onclick="showAnswer(14)">Answer</button>
+      </li>
+      <br>
+      <li>
+        L'entité réalise une évaluation [périodique / ponctuelle des vulnérabilités 
+        et met en place des dispositifs visant à mitiger les éventuels risques identifiés ? [Oui / Non]
+        <br>
+        <button type="button" onclick="showAnswer(15)">Answer</button>
+      </li>
+      <br>
+      <li>
+        L'entité a-t-elle réalisé une analyse de risques lié à la cybersécurité au regard 
+        des éventuels impacts sur le business et sur les états financiers ? [Oui / Non]
+        <br>
+        <button type="button" onclick="showAnswer(16)">Answer</button>
+      </li>
+      <br>
+      <li>
+        L'entité a-t-elle identifié des risques liés à la cybersécurité 
+        pouvant avoir un impact significatif sur le business ou sur les états financiers ? [Oui / Non]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        L entreprise a-t-elle mis en place des dispositifs 
+        visant à mitiger les risques liés à la cybersécurité ? [Oui / Non]
+        Si oui, les dispositifs mis en place sont :
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <h3> Logiciels de sécurité </h3>
+      <li>
+        L'entité installe des logiciels de sécurité pour la protéger contre les menaces provenant 
+        du web, notamment les logiciels espions, les virus et les attaques de phishing, à savoir : [Préciser]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        L'entité utilise un réseau privé virtuel VPN et le cryptage des courriels pour 
+        empêcher la divulgation non autorisée d'informations : [Préciser]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Des projets d'amélioration de la sécurité informatique sont également en cours, tels que 
+        l'amélioration du proxy cloud d'authentification multi-facteurs pour appliquer le filtrage 
+        de contenu afin de renforcer les utilisateurs distants. Ces projets devraient permettre d'atténuer 
+        le risque lié aux cyberattaques internes et externes, y compris les menaces liées aux informations 
+        comptables internes.  [Préciser]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        L'entité utilise un réseau privé virtuel VPN et le cryptage des courriels pour 
+        empêcher la divulgation non autorisée d'informations : [Préciser]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <h3> Formation, sensibilisation et communication </h3>
+      <li>
+        Des actions de formation [obligatoires / facultatives] sont réalisées sur les sujets suivants : 
+        [Préciser]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Des actions de sensibilisation sont également réalisées, à savoir : [Préciser] 
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        De plus, l'entité réalise des communications [ponctuelles / régulières] 
+        auprès des collaborateurs sur les sujets suivants : [Préciser]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <h3> Contrôle du réseau </h3>
+      <li>
+        L'entité utilise-t-elle des outils logiciels au sein de 
+        l'organisation pour surveiller l'accès au réseau ?  [Oui/Non]
+        Si oui, les dispositifs mis en place sont : 
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <h3> Contrôle de vérification </h3>
+      <li>
+        L'entité dispose-t-elle des contrôles qui vérifient les modifications apportées 
+        aux informations relatives aux comptes bancaires ou aux paiements des fournisseurs 
+        afin d'authentifier la validité des modifications ?  [Par exemple, les membres de l'acheminement, 
+        les noms des fournisseurs, etc.]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <h3> Équipe de réponse aux incidents de cybersécurité de l'entreprise </h3>
+      <li>
+        L'entité a-t-elle mis en place une équipe de réponse aux incidents de cybersécurité dans 
+        le cadre de son programme de protection contre les cyber-intrusions. 
+        [Ajouter un commentaire concernant l’équipe de réponse aux incidents de cybersécurité]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Incident cyber survenu / Date de survenance de l’incident cyber	/ 
+        Date de clôture de l’incident cyber	/ Durée de l’incident cyber	/ 
+        Nature de l’incident cyber [Mineur / Majeur] / Périmètre de l’incident cyber / 
+        Root cause de l’incident cyber / Action corrective
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
+      <br>
+      <li>
+        Les incidents observés sont-ils de nature à remettre en cause la fiabilité de l’établissement 
+        des états financiers ? [Oui / Non]
+        <br>
+        <button type="button" onclick="showAnswer(2)">Answer</button>
+      </li>
     </ol>
 
     <!-- Container to display relevant documents -->
@@ -27,6 +292,6 @@
 
     <!-- Container to display answers -->
     <div id="answer-container"></div>
-
   </body>
 </html>
+    
