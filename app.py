@@ -19,11 +19,6 @@ UPLOAD_FOLDER = 'uploads' # 'uploads' is a folder on the server
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 filenames = os.listdir(UPLOAD_FOLDER)
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
 
 # Main route to display the upload form (ask the user to upload files)
 @app.route('/', methods=['GET', 'POST'])
@@ -46,11 +41,6 @@ def upload_files():
     return render_template('upload.html') 
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
 # Route to display the uploaded files classified by language and by topic
 @app.route('/uploads') # will only handle GET requests by default
 def uploaded_files():
@@ -106,9 +96,6 @@ def question_answering():
      
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    app.run(debug=True)
-=======
     app.run(debug=True)
     
     
@@ -158,4 +145,3 @@ if __name__ == '__main__':
 
 #     # Return the answer as a JSON response
 #     return jsonify({'answer': answer})
->>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
