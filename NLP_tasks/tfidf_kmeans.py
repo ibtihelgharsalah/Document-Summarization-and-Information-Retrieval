@@ -1,5 +1,7 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
+import numpy
+from numpy import argsort
 from NLP_preprocessing.data_cleaning import eng_clean, fr_clean
 from nltk.corpus import stopwords
 
@@ -48,8 +50,13 @@ def group_by_topic_english(eng_files):
     
     # Create a dictionary of topics
     eng_topics = {}
+<<<<<<< HEAD
     eng_topics[f"Topic 1: keywords ({', '.join(eng_topics_keywords['Topic 1'])})"] = eng_topic1
     eng_topics[f"Topic 2: keywords ({', '.join(eng_topics_keywords['Topic 2'])})"] = eng_topic2
+=======
+    eng_topics[f"Topic 1: ({', '.join(eng_topics_keywords['Topic 1'])})"] = eng_topic1
+    eng_topics[f"Topic 2: ({', '.join(eng_topics_keywords['Topic 2'])})"] = eng_topic2
+>>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
         
     return eng_topics
 
@@ -101,7 +108,14 @@ def group_by_topic_french(fr_files):
     
     # Create a dictionary of topics
     fr_topics = {}
+<<<<<<< HEAD
     fr_topics[f"Topic 1: keywords ({', '.join(fr_topics_keywords['Topic 1'])})"] = fr_topic1
     fr_topics[f"Topic 2: keywords ({', '.join(fr_topics_keywords['Topic 2'])})"] = fr_topic2
     
     return fr_topics
+=======
+    fr_topics[f"Topic 1: ({', '.join(fr_topics_keywords['Topic 1'])})"] = fr_topic1
+    fr_topics[f"Topic 2: ({', '.join(fr_topics_keywords['Topic 2'])})"] = fr_topic2
+    
+    return fr_topics
+>>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04

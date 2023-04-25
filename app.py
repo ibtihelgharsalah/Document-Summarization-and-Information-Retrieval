@@ -19,6 +19,11 @@ UPLOAD_FOLDER = 'uploads' # 'uploads' is a folder on the server
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 filenames = os.listdir(UPLOAD_FOLDER)
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
 
 # Main route to display the upload form (ask the user to upload files)
 @app.route('/', methods=['GET', 'POST'])
@@ -41,6 +46,11 @@ def upload_files():
     return render_template('upload.html') 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
 # Route to display the uploaded files classified by language and by topic
 @app.route('/uploads') # will only handle GET requests by default
 def uploaded_files():
@@ -65,6 +75,8 @@ def uploaded_files():
     return render_template('uploaded.html', eng_files= eng_files.keys(), fr_files= fr_files.keys(),
                             other_files= other_language_files.keys(), eng_topics= eng_topics, 
                             fr_topics= fr_topics, eng_summaries= eng_summaries, fr_summaries= fr_summaries)
+
+
 
 
 @app.route('/question_answering')
@@ -94,4 +106,56 @@ def question_answering():
      
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run(debug=True)
+=======
+    app.run(debug=True)
+    
+    
+    
+    
+    
+    
+    
+    
+# # Route to fetch the uploaded files and extract information to answer each question on the html page
+# @app.route('/answer', methods=['GET'])
+# def question_answering():
+#     # Get the filenames of the uploaded files
+#     files = os.listdir(app.config['UPLOAD_FOLDER'])
+#     # Extract the text from each uploaded file
+#     doc_texts = extract_text(app.config['UPLOAD_FOLDER'], files)
+#     # Preprocess the uploaded files
+#     preprocessed_files = preprocess_files(files)
+#     # Get the questions from the HTML form
+#     questions = request.args.getlist('question')
+#     # Initialize a dictionary to hold the answers for each question
+#     answers = {}
+#     # Loop through each question and retrieve the relevant information
+#     for question in questions:
+#         # Extract information from the preprocessed files to answer the question
+#         information = extract_information(preprocessed_files, question)
+#         # Add the answer to the answers dictionary
+#         answers[question] = information
+#     # Render the results template and pass in the answers dictionary
+#     return render_template('results.html', answers=answers)
+
+
+# @app.route('/api/question-answering', methods=['POST'])
+# def question_answering():
+#     # Parse the question from the POST request
+#     question = request.json['question']
+
+#     # Define a pre-defined answer for the question
+#     if question == 'What is the capital of France?':
+#         answer = 'The capital of France is Paris.'
+        
+#     elif question == 'What is the tallest mountain in the world?':
+#         answer = 'The tallest mountain in the world is Mount Everest.'
+        
+#     else:
+#         answer = 'I am sorry, I do not know the answer to that question.'
+
+#     # Return the answer as a JSON response
+#     return jsonify({'answer': answer})
+>>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
