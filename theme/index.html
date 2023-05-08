@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
 <html lang="en-us">
 
 <head>
 	<meta charset="utf-8">
-	<title> clarITy - Home </title>
+	<title>Wallet - Payday Loan Service Template</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 	<meta name="description" content="This is meta description">
 	<meta name="author" content="Themefisher">
-	<link rel="shortcut icon" href="static/images/favicon.png" type="image/x-icon">
-	<link rel="icon" href="static/images/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
   
   <!-- theme meta -->
   <meta name="theme-name" content="wallet" />
@@ -20,13 +27,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<!-- # CSS Plugins -->
-	<link rel="stylesheet" href="static/plugins/slick/slick.css">
-	<link rel="stylesheet" href="static/plugins/font-awesome/fontawesome.min.css">
-	<link rel="stylesheet" href="static/plugins/font-awesome/brands.css">
-	<link rel="stylesheet" href="static/plugins/font-awesome/solid.css">
+	<link rel="stylesheet" href="plugins/slick/slick.css">
+	<link rel="stylesheet" href="plugins/font-awesome/fontawesome.min.css">
+	<link rel="stylesheet" href="plugins/font-awesome/brands.css">
+	<link rel="stylesheet" href="plugins/font-awesome/solid.css">
 
 	<!-- # Main Style Sheet -->
-	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -36,7 +43,7 @@
 	<nav class="navbar navbar-expand-xl navbar-light text-center py-3">
 		<div class="container">
 			<a class="navbar-brand" href="index.html">
-				<img loading="prelaod" decoding="async" class="img-fluid" width="160" src="static/images/logo.png" alt="Wallet">
+				<img loading="prelaod" decoding="async" class="img-fluid" width="160" src="images/logo.png" alt="Wallet">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
 			</button>
@@ -79,39 +86,49 @@
 </header>
 <!-- /navigation -->
 
-<!-- 
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>File Upload</title>
-  </head>
-  <body>
-    <h1>Upload your Files Here</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-      <input type="file" name="files[]" multiple>
-      <input type="submit" value="Upload">
-    </form>
-  </body>
-</html>
--->
-
 <div class="modal applyLoanModal fade" id="applyLoan" tabindex="-1" aria-labelledby="applyLoanLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
-        <h4 class="modal-title" id="exampleModalLabel">Upload your Files Here</h4>
+        <h4 class="modal-title" id="exampleModalLabel">How much do you need?</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form action="#!" method="post">
           <div class="row">
-            <form action="/" method="post" enctype="multipart/form-data">
-              <div class="col-lg-12 d-flex">
-              <input class="form-control" type="file" name="files[]" multiple>
-              <input type="submit" class="btn btn-primary" value="Upload">
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_amount" class="form-label">Amount</label>
+                <input type="number" class="form-control shadow-none" id="loan_amount" placeholder="ex: 25000">
               </div>
-            </form>
+            </div>
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_how_long_for" class="form-label">How long for?</label>
+                <input type="number" class="form-control shadow-none" id="loan_how_long_for" placeholder="ex: 12">
+              </div>
+            </div>
+            <div class="col-lg-12 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_repayment" class="form-label">Repayment</label>
+                <input type="number" class="form-control shadow-none" id="loan_repayment" disabled>
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_full_name" class="form-label">Full Name</label>
+                <input type="text" class="form-control shadow-none" id="loan_full_name">
+              </div>
+            </div>
+            <div class="col-lg-6 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_email_address" class="form-label">Email address</label>
+                <input type="email" class="form-control shadow-none" id="loan_email_address">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-primary w-100">Get Your Loan Now</button>
+            </div>
           </div>
         </form>
       </div>
@@ -124,16 +141,17 @@
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <div class="block text-center text-lg-start pe-0 pe-xl-5">
-          <h1 class="text-capitalize mb-4">Experience "IT-Understanding" Like Never Before</h1>
-          <p class="mb-4">We have developed document manipulation tools to make your life
-            <br>easier with clarity.</p> <a type="button"
-            class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#applyLoan"> Start Now <span style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
+          <h1 class="text-capitalize mb-4">get a fastest loan with a smart way by seating at home</h1>
+          <p class="mb-4">We have collected the best offers of credit institutions and banks
+            <br>of Colombia. It remains to choose what suits you as fast as you.</p> <a type="button"
+            class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#applyLoan">Apply
+            Loan Now <span style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="ps-lg-5 text-center">
           <img loading="lazy" decoding="async"
-            src="static/images/banner/banner.png"
+            src="images/banner/banner.png"
             alt="banner image" class="w-100">
         </div>
       </div>
@@ -276,7 +294,7 @@
         </div>
       </div>
       <div class="col-lg-7 text-center text-lg-end">
-        <img loading="lazy" decoding="async" src="static/images/about-us.png" alt="About Ourselves" class="img-fluid">
+        <img loading="lazy" decoding="async" src="images/about-us.png" alt="About Ourselves" class="img-fluid">
       </div>
     </div>
   </div>
@@ -416,7 +434,7 @@
               <div class="col-md-6 order-0 order-md-1 mb-5 mt-md-0">
                 <div class="image-block text-center">
                   <img loading="lazy" decoding="async"
-                    src="static/images/payment-info.png" alt="How Much Can I Recive?" class="img-fluid">
+                    src="images/payment-info.png" alt="How Much Can I Recive?" class="img-fluid">
                 </div>
               </div>
             </div>
@@ -437,7 +455,7 @@
               </div>
               <div class="col-md-6 order-0 order-md-1 mb-5 mt-md-0">
                 <div class="image-block text-center">
-                  <img loading="lazy" decoding="async" src="static/images/illustration-2.png" alt="How Much Does It Costs?" class="img-fluid">
+                  <img loading="lazy" decoding="async" src="images/illustration-2.png" alt="How Much Does It Costs?" class="img-fluid">
                 </div>
               </div>
             </div>
@@ -458,7 +476,7 @@
               </div>
               <div class="col-md-6 order-0 order-md-1 mb-5 mt-md-0">
                 <div class="image-block text-center">
-                  <img loading="lazy" decoding="async" src="static/images/illustration-1.png" alt="How Do I Repay?" class="img-fluid">
+                  <img loading="lazy" decoding="async" src="images/illustration-1.png" alt="How Do I Repay?" class="img-fluid">
                 </div>
               </div>
             </div>
@@ -521,7 +539,7 @@
         <div class="shadow rounded bg-white p-4 mt-4">
           <div class="d-block d-sm-flex align-items-center mb-3">
             <img loading="lazy" decoding="async"
-              src="static/images/testimonials/01.jpg"
+              src="images/testimonials/01.jpg"
               alt="Leslie Alexander" class="img-fluid" width="65" height="66">
             <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
               <h4 class="h5 mb-1">Leslie Alexander</h4>
@@ -536,7 +554,7 @@
         <div class="shadow rounded bg-white p-4 mt-4">
           <div class="d-block d-sm-flex align-items-center mb-3">
             <img loading="lazy" decoding="async"
-              src="static/images/testimonials/02.jpg"
+              src="images/testimonials/02.jpg"
               alt="Arlene McCoy" class="img-fluid" width="65" height="66">
             <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
               <h4 class="h5 mb-1">Arlene McCoy</h4>
@@ -551,7 +569,7 @@
         <div class="shadow rounded bg-white p-4 mt-4">
           <div class="d-block d-sm-flex align-items-center mb-3">
             <img loading="lazy" decoding="async"
-              src="static/images/testimonials/03.jpg"
+              src="images/testimonials/03.jpg"
               alt="Marvin McKinney" class="img-fluid" width="65" height="66">
             <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
               <h4 class="h5 mb-1">Marvin McKinney</h4>
@@ -566,7 +584,7 @@
         <div class="shadow rounded bg-white p-4 mt-4">
           <div class="d-block d-sm-flex align-items-center mb-3">
             <img loading="lazy" decoding="async"
-              src="static/images/testimonials/04.jpg"
+              src="images/testimonials/04.jpg"
               alt="Devon Lane" class="img-fluid" width="65" height="66">
             <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
               <h4 class="h5 mb-1">Devon Lane</h4>
@@ -581,7 +599,7 @@
         <div class="shadow rounded bg-white p-4 mt-4">
           <div class="d-block d-sm-flex align-items-center mb-3">
             <img loading="lazy" decoding="async"
-              src="static/images/testimonials/05.jpg"
+              src="images/testimonials/05.jpg"
               alt="Bessie Cooper" class="img-fluid" width="65" height="66">
             <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
               <h4 class="h5 mb-1">Bessie Cooper</h4>
@@ -596,7 +614,7 @@
         <div class="shadow rounded bg-white p-4 mt-4">
           <div class="d-block d-sm-flex align-items-center mb-3">
             <img loading="lazy" decoding="async"
-              src="static/images/testimonials/06.jpg"
+              src="images/testimonials/06.jpg"
               alt="Kathryn Murphy" class="img-fluid" width="65" height="66">
             <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
               <h4 class="h5 mb-1">Kathryn Murphy</h4>
@@ -833,7 +851,7 @@
 		<div class="row align-items-center mt-5 text-center text-md-start">
 			<div class="col-lg-4">
         <a href="index.html">
-          <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="static/images/logo.png" alt="Wallet">
+          <img loading="prelaod" decoding="async" class="img-fluid" width="160" src="images/logo.png" alt="Wallet">
         </a>
 			</div>
 			<div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
@@ -860,48 +878,13 @@
 
 
 <!-- # JS Plugins -->
-<script src="static/plugins/jquery/jquery.min.js"></script>
-<script src="static/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="static/plugins/slick/slick.min.js"></script>
-<script src="static/plugins/scrollmenu/scrollmenu.min.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/scrollmenu/scrollmenu.min.js"></script>
 
 <!-- Main Script -->
-<script src="static/js/script.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>File Upload</title>
-  </head>
-  <body>
-    <h1>Upload your Files Here</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-      <input type="file" name="files[]" multiple>
-      <input type="submit" value="Upload">
-    </form>
-  </body>
-</html>
--->

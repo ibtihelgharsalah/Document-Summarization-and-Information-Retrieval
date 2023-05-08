@@ -17,15 +17,11 @@
       <li>{{ topic }}:
         <ul>
         {% for file in files %}
-<<<<<<< HEAD
           <li>
             <a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a>
             <br>
             {{ eng_summaries[file] }}
           </li>
-=======
-          <li><a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a></li>
->>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
         {% endfor %}
         </ul>
       </li>
@@ -34,7 +30,6 @@
 
     <h2>French files:</h2>
     <ul>
-<<<<<<< HEAD
       {% for topic, files in fr_topics.items() %}
         <br>
         <li>{{ topic }}:
@@ -50,18 +45,6 @@
         </li>
       {% endfor %}
       </ul>
-=======
-    {% for topic, files in fr_topics.items() %}
-      <li>{{ topic }}:
-        <ul>
-        {% for file in files %}
-          <li><a href="{{ url_for('static', filename=file) }}" target="_blank">{{ file }}</a></li>
-        {% endfor %}
-        </ul>
-      </li>
-    {% endfor %}
-    </ul>
->>>>>>> 68205ca420d56193f60ede31caffa15d5ab38c04
     
     <h2>Other-language files:</h2>
     <ul>

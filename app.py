@@ -20,6 +20,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 filenames = os.listdir(UPLOAD_FOLDER)
 
 
+
+
 # Main route to display the upload form (ask the user to upload files)
 @app.route('/', methods=['GET', 'POST'])
 def upload_files():
@@ -39,6 +41,8 @@ def upload_files():
     # if the request method is GET
     # displays an HTML form that allows the user to select and upload files to the server.
     return render_template('upload.html') 
+
+
 
 
 # Route to display the uploaded files classified by language and by topic
@@ -75,12 +79,13 @@ def question_answering():
     files = os.listdir(app.config['UPLOAD_FOLDER'])
     # Extract the text from each uploaded file
     doc_texts = extract_text(app.config['UPLOAD_FOLDER'], files)
+    # Define the 5 lists of english tokens describing each of the 5 sections respectively
     eng_section_tokens = [["IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system", "update", "change", "development", "system change", "procedure"],
                           ["ISD", "IT system diagram", "diagram", "application", "network", "database", "os", "operating system","process", "IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system", "update", "change", "development", "system change", "procedure"],
                           ["IT organization", "members", "key members", "member name", "position", "services", "activity", "team", "Outsourced service provider", "Outsourced service", "skills","objectives", "supervision", "audit clause", "IT service contracts", "agreement", "providers", "service providers"],
                           ["IT process", "Access", "programs", "data","access management", "procedure", "password policy", "password", "Application changes", "changes", "change management", "procedure", "Acquisition", "development", "new","new system", "IT operations", "supervision", "procedures"],
                           ["cybersecurity", "security", "access", "password","people", "evaluation", "periodic", "vulnerability", "vulnerabilities", "mitigate", "potential risks", "risk", "significant", "impact", "devices", "security software", "software", "threat", "web", "virus", "attack", "phishing", "vpn", "encryption", "authorized", "disclosure", "authentication", "authorization", "cloud", "proxy", "cyberattack", "awareness", "monitor", "Verification control", "Cybersecurity", "Incident", "Team"]]
-    
+    # Define the 5 lists of french tokens describing each of the 5 sections respectively
     fr_section_tokens = [["système informatique", "système d'information", "rapports financiers", "objectif du système informatique", "couches technologiques", "gouvernance informatique", "comptabilité", "processus d'entreprise", "logiciel", "application", "réseau", "base de données", "os", "système d'exploitation", "mise à jour", "changement", "développement", "changement de système", "procédure"],
                          ["DSI", "diagramme de système informatique", "diagramme", "application", "réseau", "base de données", "os", "système d'exploitation", "processus", "système informatique", "système d'information", "rapports financiers", "objectif du système informatique", "couches technologiques", "gouvernance informatique", "comptabilité", "processus d'entreprise", "logiciel", "application", "réseau", "base de données", "os", "système d'exploitation", "mise à jour", "changement", "développement", "changement de système", "procédure"],
                          ["organisation informatique", "membres", "membres clés", "nom du membre", "poste", "services", "activité", "équipe", "prestataire de services externalisés", "service externalisé", "compétences", "objectifs", "supervision", "clause d'audit", "contrats de services informatiques", "accord", "fournisseurs", "prestataires de services"],
@@ -97,51 +102,3 @@ def question_answering():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-    
-    
-    
-    
-    
-    
-    
-# # Route to fetch the uploaded files and extract information to answer each question on the html page
-# @app.route('/answer', methods=['GET'])
-# def question_answering():
-#     # Get the filenames of the uploaded files
-#     files = os.listdir(app.config['UPLOAD_FOLDER'])
-#     # Extract the text from each uploaded file
-#     doc_texts = extract_text(app.config['UPLOAD_FOLDER'], files)
-#     # Preprocess the uploaded files
-#     preprocessed_files = preprocess_files(files)
-#     # Get the questions from the HTML form
-#     questions = request.args.getlist('question')
-#     # Initialize a dictionary to hold the answers for each question
-#     answers = {}
-#     # Loop through each question and retrieve the relevant information
-#     for question in questions:
-#         # Extract information from the preprocessed files to answer the question
-#         information = extract_information(preprocessed_files, question)
-#         # Add the answer to the answers dictionary
-#         answers[question] = information
-#     # Render the results template and pass in the answers dictionary
-#     return render_template('results.html', answers=answers)
-
-
-# @app.route('/api/question-answering', methods=['POST'])
-# def question_answering():
-#     # Parse the question from the POST request
-#     question = request.json['question']
-
-#     # Define a pre-defined answer for the question
-#     if question == 'What is the capital of France?':
-#         answer = 'The capital of France is Paris.'
-        
-#     elif question == 'What is the tallest mountain in the world?':
-#         answer = 'The tallest mountain in the world is Mount Everest.'
-        
-#     else:
-#         answer = 'I am sorry, I do not know the answer to that question.'
-
-#     # Return the answer as a JSON response
-#     return jsonify({'answer': answer})
