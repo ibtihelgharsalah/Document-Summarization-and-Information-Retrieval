@@ -12,6 +12,7 @@ from utils.allowed_extention import allowed_file
 from NLP_tasks.tfidf_kmeans import group_by_topic_english, group_by_topic_french
 from NLP_tasks.relevant_doc_retrieval import find_related_documents
 from NLP_tasks.summarization import eng_summarize, fr_summarize
+from NLP_tasks.info_retrieval import retrieve_info
 app = Flask(__name__)                                                           
 
 # Set the upload folder and files
@@ -79,6 +80,7 @@ def question_answering():
     files = os.listdir(app.config['UPLOAD_FOLDER'])
     # Extract the text from each uploaded file
     doc_texts = extract_text(app.config['UPLOAD_FOLDER'], files)
+    
     # Define the 5 lists of english tokens describing each of the 5 sections respectively
     eng_section_tokens = [["IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system", "update", "change", "development", "system change", "procedure"],
                           ["ISD", "IT system diagram", "diagram", "application", "network", "database", "os", "operating system","process", "IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system", "update", "change", "development", "system change", "procedure"],
@@ -92,12 +94,75 @@ def question_answering():
                          ["processus informatique", "accès", "programmes", "données", "gestion des accès", "procédure", "politique de mot de passe", "mot de passe", "changements d'application", "changements", "gestion des changements", "procédure", "acquisition", "développement", "nouveau", "nouveau système", "opérations informatiques", "supervision", "procédures"],
                          ["cybersécurité", "sécurité", "accès", "mot de passe", "personnes", "évaluation", "périodique", "vulnérabilité", "vulnérabilités", "atténuer", "risques potentiels", "risque", "significatif", "impact", "dispositifs", "logiciel de sécurité", "logiciel", "menace", "web", "virus", "attaque", "phishing", "vpn", "cryptage", "autorisé", "divulgation", "authentification", "autorisation", "cloud", "proxy", "cyberattaque", "sensibilisation", "surveillance", "contrôle de vérification", "cybersécurité", "incident", "équipe"]]
     
+    # Define the 23 lists of english tokens describing each of the 23 questions respectively
+    eng_question_tokens =[["IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system", "procedure", "Windows", "integrator", "oracle", "hms", "osbc", "hotix", "interfacing", "accounting", "purchase", "rh", "sales", "management"],
+                          ["update", "change", "development", "system change"],
+                          ["procedure", "process", "ISD", "IT system diagram", "diagram", "application", "network", "database", "os", "operating system","process", "IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system"],
+                          ["IT organization", "members", "key members", "member name", "position", "team"],
+                          ["IT service", "services", "activity", "IT department", "mission"],
+                          ["IT organization", "members", "key members", "member name", "position", "team"],
+                          ["providers", "service providers", "Outsourced service provider", "Outsourced service"],
+                          ["skills","objectives", "supervision", "audit clause"],
+                          ["access", "password", "unique identifier", "unique", "identifier"],
+                          ["access management procedure", "procedure", "access management", "access"],
+                          ["list of application profiles", "segregation of duties matrix", "application profiles", "segregation of duties"],
+                          ["password", "password policy", "password length", "Upper case", "lower case", "numbers", "special characters", "password renewal", "initialization password"],
+                          ["Application changes", "changes", "change management", "change"],
+                          ["Acquisition", "development", "new","new system"],
+                          ["incident and problem management procedures", "incident", "problem management", "incident management"],
+                          ["Data backup", "recovery", "backup", "backup strategy", "data retention"],
+                          ["DRP", "disaster recovery plan", "recovery", "disaster"],
+                          ["Cybersecurity risk management", "cybersecurity", "security", "risk"],
+                          ["security software", "software", "cybersecurity", "security"],
+                          ["Training", "awareness", "communication", "cybersecurity", "security"],
+                          ["network control", "network", "cybersecurity", "security", "network access"],
+                          ["verification control", "verification", "cybersecurity", "security"],
+                          ["cybersecurity incident response team", "team", "cybersecurity", "security", "members"]]
+    # Define the 23 lists of french tokens describing each of the 23 questions respectively
+    fr_question_tokens = [["système informatique", "système d'information", "information financière", "objectif du système informatique", "couches technologiques", "gouvernance informatique", "comptabilité", "processus d'entreprise", "logiciel", "application", "réseau", "base de données", "os", "système d'exploitation", "procédure", "Windows", "intégrateur", "oracle", "hms", "osbc", "hotix", "interfaçage", "comptabilité", "achat", "rh", "ventes", "gestion"],
+                          ["mise à jour", "changement", "développement", "changement de système"],
+                          ["procédure", "processus", "DSI", "diagramme de système informatique", "diagramme", "application", "réseau", "base de données", "os", "système d'exploitation", "processus", "système informatique", "système d'information", "rapports financiers", "objectif du système informatique", "couches technologiques", "gouvernance informatique", "comptabilité", "processus d'entreprise", "logiciel", "application", "réseau", "base de données", "os", "système d'exploitation"],
+                          ["organisation informatique", "membres", "membres clés", "nom du membre", "poste", "équipe"],
+                          ["service informatique", "services", "activité", "département informatique", "mission"],
+                          ["organisation informatique", "membres", "membres clés", "nom du membre", "fonction", "équipe"],
+                          ["fournisseurs", "fournisseurs de services", "fournisseur de services externalisés", "service externalisé"],
+                          ["compétences", "objectifs", "supervision", "clause d'audit"],
+                          ["accès", "mot de passe", "identifiant unique", "unique", "identifiant"],
+                          ["procédure de gestion des accès", "procédure", "gestion des accès", "accès"],
+                          ["liste des profils d'application", "matrice de séparation des tâches", "profils d'application", "séparation des tâches"],
+                          ["mot de passe", "politique en matière de mot de passe", "longueur du mot de passe", "majuscules", "minuscules", "chiffres", "caractères spéciaux", "renouvellement du mot de passe", "mot de passe d'initialisation"],
+                          ["Changements d'application", "changements", "gestion des changements", "changement"],
+                          ["Acquisition", "développement", "nouveau", "nouveau système"],
+                          ["Procédures de gestion des incidents et des problèmes", "incident", "gestion des problèmes", "gestion des incidents"],
+                          ["Sauvegarde des données", "récupération", "sauvegarde", "stratégie de sauvegarde", "conservation des données"],
+                          ["PRA", "Plan de reprise d’activité", "restauration", "sésastre", "catastrophe"],
+                          ["Gestion des risques de cybersécurité", "cybersécurité", "sécurité", "risque"],
+                          ["logiciel de sécurité", "logiciel", "cybersécurité", "sécurité"],
+                          ["Formation", "sensibilisation", "communication", "cybersécurité", "sécurité"],
+                          ["contrôle du réseau", "réseau", "cybersécurité", "sécurité", "accès au réseau"],
+                          ["contrôle de la vérification", "vérification", "cybersécurité", "sécurité"],
+                          ["équipe de réponse aux incidents de cybersécurité", "équipe", "cybersécurité", "sécurité", "membres"]]
+    
     related_docs = []
+    related_info = []
     for es, fs in zip(eng_section_tokens, fr_section_tokens):
         d = find_related_documents(doc_texts, es, fs)
         related_docs.append(d)
+    
+    for eq, fq in zip(eng_question_tokens, fr_question_tokens): 
+        i = retrieve_info(doc_texts, eq, fq)
+        related_info.append(i)      
+        
     return render_template('question_answering.html', d0 = related_docs[0], d1 = related_docs[1], d2 = related_docs[2],
-                           d3 = related_docs[3], d4 = related_docs[4])
+                           d3 = related_docs[3], d4 = related_docs[4], 
+                           i0 = related_info[0], i1 = related_info[1], i2 = related_info[2], 
+                           i3 = related_info[3], i4 = related_info[4], i5 = related_info[5], 
+                           i6 = related_info[6], i7 = related_info[7], i8 = related_info[8], 
+                           i9 = related_info[9], i10 = related_info[10], i11 = related_info[11],
+                           i12 = related_info[12], i13 = related_info[13], i14 = related_info[14],
+                           i15 = related_info[15], i16 = related_info[16], i17 = related_info[17],
+                           i18 = related_info[18], i19 = related_info[19], i20 = related_info[20],
+                           i21 = related_info[21], i22 = related_info[22], i23 = related_info[23])
      
 
 if __name__ == '__main__':

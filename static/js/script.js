@@ -92,4 +92,20 @@ $(window).on("load", function () {
     activeOffset: 40,
     scrollOffset: 10,
   });
+
+/*-----------------
+        Menu Stick
+    -----------------*/
+    var header = $(".sticky-bar");
+    var win = $(window);
+    win.on("scroll", function () {
+        var scroll = win.scrollTop();
+        if (scroll < 200) {
+            header.removeClass("stick");
+          
+        } else {
+            header.addClass("stick");
+        }
+    });
+
 })(jQuery);
