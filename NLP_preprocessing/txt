@@ -1,0 +1,42 @@
+
+    App
+    ├── NLP_preprocessing
+    │   ├── __init__.py
+    │   ├── text_extraction.py
+    |   |       extract_text(upload_folder, filenames) --> return doc_texts
+    │   ├── data_cleaning.py
+    |   |       eng_clean(eng_texts) --> return eng_cleaned
+    |   |       fr_clean(fr_texts) --> return fr_cleaned
+    │   └── language_detection.py
+    |           detect_language (doc_texts) --> return eng_texts, fr_texts, other_langs
+    ├── NLP_tasks
+    │   ├── __init__.py
+    │   ├── tfidf_kmeans.py
+    |   |       group_by_topic_english(eng_files) --> return eng_topics
+    |   |       group_by_topic_french(fr_files) --> return fr_topics
+    │   ├── summarization.py
+    |   |       eng_summarize(text) --> return summary
+    |   |       fr_summarize(text) --> return summary
+    │   ├── relevant_doc_retrieval.py
+    |   |       find_related_documents(documents, eng_section_tokens, fr_section_tokens) --> return results
+    │   └── info_retrieval.py
+    |           retrieve_info(eng_files, fr_files, eng_query, fr_query) --> return sorted_results
+    ├── utils
+    │   ├── __init__.py
+    │   ├── allowed_extention.py
+    |   |       allowed_file(filename) --> return boolean
+    │   ├── pnc_removal.py
+    |   |       pnc_removal(tokens)
+    │   └── sw_removal.py
+    |           eng_sw_removal(eng_tokens) --> return eng_clean_tokens
+    |           fr_sw_removal(fr_tokens) --> return fr_clean_tokens
+    ├── Uploads
+    ├── templates
+    │   ├── upload.html
+    │   ├── uploaded.html
+    │   └── question_answering.html
+    └── app.py
+    
+
+
+    

@@ -64,12 +64,13 @@
 </header>
 <!-- /navigation -->
 
+
 <section class="section-sm">
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4 mb-5 mb-lg-0">
         <div class="bg-white shadow rounded-lg p-4 sticky-top" style="top: 30px;">
-          <h4 class="has-line-end">Personal loans</h4>
+          <h4 class="has-line-end">IT Understanding</h4>
           <nav id="TableOfContents">
             <ul>
               <li><a href="#section_1">I. Les systèmes IT utilisés par l'entité pour le reporting financier et métiers</a>
@@ -79,6 +80,16 @@
               <li><a href="#section_3">III. Compréhension de l organisation IT</a>
               </li>
               <li><a href="#section_4">IV. Compréhension des process IT de l entité</a>
+                <ul>
+									<li><a href="#sub_41">1. L’accès aux programmes et aux données</a>
+									</li>
+                  <li><a href="#sub_42">2. Les changements applicatifs</a>
+									</li>
+                  <li><a href="#sub_43">3.	Acquisitions / développements de nouveaux systèmes</a>
+									</li>
+                  <li><a href="#sub_44">4. Les opérations informatiques</a>
+									</li>
+								</ul>
               </li>
               <li><a href="#section_5">V. Cybersecurité</a>
               </li>
@@ -90,96 +101,120 @@
       <div class="col-lg-8">
         <div class="content">
 
-          <h3 id="section_1">I. Les systèmes IT utilisés par l'entité pour le reporting financier et métiers :</h3>
+          <h3 id="section_1">I. Les systèmes IT utilisés par l'entité pour le reporting financier et métiers</h3>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d0')">Relevant docs</button>
+          <div id="d0" style="display: none;">
+            <ul>
+              {% for doc in d0 %}
+                <li>{{ doc }}</li>
+              {% endfor %}
+            </ul>
+          </div>
 
-          <h3 id="section_2">II. Compréhension des systèmes IT de l' entité :</h3>
+          <h3 id="section_2">II. Compréhension des systèmes IT de l' entité</h3>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d1')">Relevant docs</button>
+          <div id="d1" style="display: none;">
+            <ul>
+              {% for doc in d1 %}
+                <li>{{ doc }}</li>
+              {% endfor %}
+            </ul>
+          </div>
           <div class="accordion accordion-border-bottom" id="accordionFAQ">
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true"
-                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">0. Les systèmes IT utilisés par 
-                l’entité dans le cadre de ses rapports financiers et de ses processus opérationnels :</h2>
-              <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
+                id="heading-II1" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-II1" aria-expanded="true"
+                aria-controls="collapse-II1">Les systèmes IT utilisés par 
+                l’entité dans le cadre de ses rapports financiers et de ses processus opérationnels</h2>
+              <div id="collapse-II1"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-II1" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i0}}
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" aria-expanded="false"
-                aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">1. Les Informations concernant les
-                mises à jour ou changements importants si existants :</h2>
-              <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1"
+                id="heading-II2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-II2" aria-expanded="false"
+                aria-controls="collapse-II2">Les Informations concernant les
+                mises à jour ou changements importants si existants</h2>
+              <div id="collapse-II2"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-II2" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i1}}
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">2. IT System Diagram _ISD_ :</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-II3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-II3" aria-expanded="false"
+                aria-controls="collapse-II3">IT System Diagram _ISD_</h2>
+              <div id="collapse-II3"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-II3" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i2}}
                 </div>
               </div>
             </div>
           </div>
 
-          <h3 id="section_3">III. Compréhension de l organisation IT :</h3>
+          <h3 id="section_3">III. Compréhension de l organisation IT</h3>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d2')">Relevant docs</button>
+          <div id="d2" style="display: none;">
+            <ul>
+              {% for doc in d2 %}
+                <li>{{ doc }}</li>
+              {% endfor %}
+            </ul>
+          </div>
           <div class="accordion accordion-border-bottom" id="accordionFAQ">
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true"
-                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">3. Les membres clés de l'organisation IT</h2>
-              <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
+                id="heading-III1" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-III1" aria-expanded="true"
+                aria-controls="collapse-III1">Les membres clés de l'organisation IT</h2>
+              <div id="collapse-III1"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-III1" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i3}}
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" aria-expanded="false"
-                aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">4. Les fonctions clés de l'organisation IT</h2>
-              <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1"
+                id="heading-III2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-III2" aria-expanded="false"
+                aria-controls="collapse-III2">Les fonctions clés de l'organisation IT</h2>
+              <div id="collapse-III2"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-III2" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i4}}
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">5. Les membres clés de l'équipe de l'organisation IT</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-III3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-III3" aria-expanded="false"
+                aria-controls="collapse-III3">Les membres clés de l'équipe de l'organisation IT</h2>
+              <div id="collapse-III3"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-III3" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i5}}
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">6. Les éléments externalisés</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-III4" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-III4" aria-expanded="false"
+                aria-controls="collapse-III4">Les éléments externalisés</h2>
+              <div id="collapse-III4"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-III4" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i6}}
                 </div>
               </div>
@@ -188,7 +223,7 @@
               <h2 class="accordion-header accordion-button h5 border-0 "
                 id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">7. Domaines d'intervention, compétences exigées, objectifs, méthode de supervision et clause d'audit des prestataires IT</h2>
+                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">Domaines d'intervention, compétences exigées, objectifs, méthode de supervision et clause d'audit des prestataires IT</h2>
               <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
@@ -198,17 +233,25 @@
             </div>
           </div>
 
-          <h3 id="section_4">IV. Compréhension des process IT de l entité :</h3>
+          <h3 id="section_4">IV. Compréhension des process IT de l entité</h3>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d3')">Relevant docs</button>
+          <div id="d3" style="display: none;">
+            <ul>
+              {% for doc in d3 %}
+                <li>{{ doc }}</li>
+              {% endfor %}
+            </ul>
+          </div>
           <div class="accordion accordion-border-bottom" id="accordionFAQ">
-            <h3>1.	L’accès aux programmes et aux données :</h3>
+            <h3 id="sub_41">1.	L’accès aux programmes et aux données</h3>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true"
-                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">8. Vérifier que l'accès aux applications se fait via un identifiant unique et requiert un mot de passe :</h2>
-              <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
+                id="heading-IV1" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-IV1" aria-expanded="true"
+                aria-controls="collapse-IV1">Vérifier que l'accès aux applications se fait via un identifiant unique et requiert un mot de passe</h2>
+              <div id="collapse-IV1"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-IV1" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i8}}
                 </div>
               </div>
@@ -216,12 +259,12 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true"
-                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">9. Obtenir la procédure de gestion d'accès :</h2>
-              <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
+                id="heading-IV2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-IV2" aria-expanded="true"
+                aria-controls="collapse-IV2">Obtenir la procédure de gestion d'accès</h2>
+              <div id="collapse-IV2"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-IV2" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i9}}
                 </div>
               </div>
@@ -229,12 +272,12 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true"
-                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">10. S'assurer de l'existence d'une liste des profils applicatifs / d'une matrice de séparation de tâches. :</h2>
-              <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
+                id="heading-IV3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-IV3" aria-expanded="true"
+                aria-controls="collapse-IV3">S'assurer de l'existence d'une liste des profils applicatifs / d'une matrice de séparation de tâches</h2>
+              <div id="collapse-IV3"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-IV3" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i10}}
                 </div>
               </div>
@@ -242,55 +285,55 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true"
-                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">11. la politique de mot de passe définie au sein de l'entreprise et la cohérence des critères avec les meilleures pratiques :</h2>
-              <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
+                id="heading-IV4" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-IV4" aria-expanded="true"
+                aria-controls="collapse-IV4">la politique de mot de passe définie au sein de l'entreprise et la cohérence des critères avec les meilleures pratiques</h2>
+              <div id="collapse-IV4"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-IV4" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i11}}
                 </div>
               </div>
             </div>
 
-            <h3>2. Les changements applicatifs :</h3>
+            <h3 id="sub_42">2. Les changements applicatifs</h3>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" aria-expanded="false"
-                aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">12. Obtenir et inspecter la procédure de gestion des changements :</h2>
-              <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1"
+                id="heading-IV5" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-IV5" aria-expanded="false"
+                aria-controls="collapse-IV5">Obtenir et inspecter la procédure de gestion des changements</h2>
+              <div id="collapse-IV5"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-IV5" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i12}}
                 </div>
               </div>
             </div>
 
-            <h3>3.	Acquisitions / développements de nouveaux systèmes :</h3>
+            <h3 id="sub_43">3.	Acquisitions / développements de nouveaux systèmes</h3>
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">13. Obtenir et inspecter la méthodologie de développement de nouveaux systèmes :</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-IV6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-IV6" aria-expanded="false"
+                aria-controls="collapse-IV6">Obtenir et inspecter la méthodologie de développement de nouveaux systèmes</h2>
+              <div id="collapse-IV6"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-IV6" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i13}}
                 </div>
               </div>
             </div>
           </div>
 
-          <h3>4. Les opérations informatiques :</h3>
+          <h3 id="sub_44">4. Les opérations informatiques</h3>
           <div class="accordion-item">
             <h2 class="accordion-header accordion-button h5 border-0 "
-              id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-              aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">14. Gestion des incidents utilisateurs et des problèmes :</h2>
-            <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+              id="heading-IV7" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-IV7" aria-expanded="false"
+              aria-controls="collapse-IV7">Gestion des incidents utilisateurs et des problèmes</h2>
+            <div id="collapse-IV7"
               class="accordion-collapse collapse border-0 "
-              aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+              aria-labelledby="heading-IV7" data-bs-parent="#accordionFAQ">
               <div class="accordion-body py-0 content">{{i14}}
               </div>
             </div>
@@ -298,12 +341,12 @@
 
           <div class="accordion-item">
             <h2 class="accordion-header accordion-button h5 border-0 "
-              id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-              aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">15. Sauvegarde et restauration des données :</h2>
-            <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+              id="heading-IV8" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-IV8" aria-expanded="false"
+              aria-controls="collapse-IV8">Sauvegarde et restauration des données</h2>
+            <div id="collapse-IV8"
               class="accordion-collapse collapse border-0 "
-              aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+              aria-labelledby="heading-IV8" data-bs-parent="#accordionFAQ">
               <div class="accordion-body py-0 content">{{i15}}
               </div>
             </div>
@@ -311,12 +354,12 @@
 
           <div class="accordion-item">
             <h2 class="accordion-header accordion-button h5 border-0 "
-              id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-              aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">16. Plan de reprise d’activité :</h2>
-            <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+              id="heading-IV9" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-IV9" aria-expanded="false"
+              aria-controls="collapse-IV9">Plan de reprise d’activité</h2>
+            <div id="collapse-IV9"
               class="accordion-collapse collapse border-0 "
-              aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+              aria-labelledby="heading-IV9" data-bs-parent="#accordionFAQ">
               <div class="accordion-body py-0 content">{{i16}}
               </div>
             </div>
@@ -324,15 +367,23 @@
 
 
           <h3 id="section_5">V. Cybersecurité</h3>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d4')">Relevant docs</button>
+          <div id="d4" style="display: none;">
+            <ul>
+              {% for doc in d4 %}
+                <li>{{ doc }}</li>
+              {% endfor %}
+            </ul>
+          </div>
           <div class="accordion accordion-border-bottom" id="accordionFAQ">
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" aria-expanded="true"
-                aria-controls="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9">17. Gestion des risques liés à la cybersécurité :</h2>
-              <div id="collapse-ebd23e34fd2ed58299b32c03c521feb0b02f19d9"
+                id="heading-V1" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-V1" aria-expanded="true"
+                aria-controls="collapse-V1">Gestion des risques liés à la cybersécurité</h2>
+              <div id="collapse-V1"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-ebd23e34fd2ed58299b32c03c521feb0b02f19d9" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-V1" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i17}}
                 </div>
               </div>
@@ -340,12 +391,12 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" aria-expanded="false"
-                aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">18. Logiciels de sécurité :</h2>
-              <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1"
+                id="heading-V2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-V2" aria-expanded="false"
+                aria-controls="collapse-V2">Logiciels de sécurité</h2>
+              <div id="collapse-V2"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-V2" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i18}}
                 </div>
               </div>
@@ -353,12 +404,12 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">19. Formation, sensibilisation et communication :</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-V3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-V3" aria-expanded="false"
+                aria-controls="collapse-V3">Formation, sensibilisation et communication</h2>
+              <div id="collapse-V3"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-V3" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i19}}
                 </div>
               </div>
@@ -366,12 +417,12 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">20. Contrôle du réseau :</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-V4" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-V4" aria-expanded="false"
+                aria-controls="collapse-V4">Contrôle du réseau</h2>
+              <div id="collapse-V4"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-V4" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i20}}
                 </div>
               </div>
@@ -379,12 +430,12 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">21. Contrôle de vérification :</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-V5" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-V5" aria-expanded="false"
+                aria-controls="collapse-V5">Contrôle de vérification</h2>
+              <div id="collapse-V5"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-V5" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i21}}
                 </div>
               </div>
@@ -392,12 +443,12 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header accordion-button h5 border-0 "
-                id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-                aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">22. Équipe de réponse aux incidents de cybersécurité de l'entreprise :</h2>
-              <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
+                id="heading-V6" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-V6" aria-expanded="false"
+                aria-controls="collapse-V6">Équipe de réponse aux incidents de cybersécurité de l'entreprise</h2>
+              <div id="collapse-V6"
                 class="accordion-collapse collapse border-0 "
-                aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+                aria-labelledby="heading-V6" data-bs-parent="#accordionFAQ">
                 <div class="accordion-body py-0 content">{{i22}}
                 </div>
               </div>

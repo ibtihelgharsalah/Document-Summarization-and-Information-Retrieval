@@ -41,7 +41,6 @@ def find_related_documents(documents, eng_section_tokens, fr_section_tokens):
     # Create a list of (filename, similarity score) tuples for English documents
     eng_results = [(filename, score) for filename, score in zip(eng_files.keys(), eng_sim_scores_rounded) if score > 0.04]
 
-    
     # Create a list of (filename, similarity score) tuples for French documents
     fr_results = [(filename, score) for filename, score in zip(fr_files.keys(), fr_sim_scores_rounded) if score > 0.04]
     

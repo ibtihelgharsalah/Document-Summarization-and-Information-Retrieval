@@ -8844,7 +8844,7 @@ a {
   color: #0091DA;
 }
 a:hover {
-  color: #51B56D;
+  color: #9EBFDF;
   text-decoration: underline;
 }
 
@@ -9624,7 +9624,7 @@ blockquote::before {
 }
 .page-header .breadcrumbs,
 .page-header .breadcrumbs a {
-  color: #111;
+  color: #00468A;
 }
 .page-header .breadcrumbs a:hover {
   color: #80AFDC;
@@ -9933,12 +9933,12 @@ textarea.form-control {
 #TableOfContents a {
   display: block;
   padding: 8px 0;
-  color: #040404;
+  color: #777777;
   font-weight: 400;
   transition: 0.2s ease;
 }
 #TableOfContents a.active {
-  color: #51B56D;
+  color: #80AFDC;
 }
 #TableOfContents ul {
   padding-left: 0;
@@ -9955,7 +9955,7 @@ textarea.form-control {
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  background: #51B56D;
+  background: #80AFDC;
   left: 3px;
   top: 15px;
 }
@@ -10169,5 +10169,69 @@ a.btn-blue:hover{
 
 element.style {
   padding-bottom: 30px;
+}
+
+.tabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.tabs label {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  display: block;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background: #D3D7DB;
+  font-weight: bold;
+  -webkit-transition: background ease 0.2s;
+  transition: background ease 0.2s;
+}
+
+.tabs .tab {
+  -webkit-box-ordinal-group: 100;
+  -webkit-order: 99;
+  -ms-flex-order: 99;
+  order: 99;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 1rem;
+  background: #fafafa;
+}
+
+.tabs input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.tabs input[type="radio"]:checked + label { background: #fafafa; }
+
+.tabs input[type="radio"]:checked + label + .tab { display: block; }
+ @media (max-width: 45em) {
+
+.tabs .tab,  .tabs label {
+  -webkit-box-ordinal-group: NaN;
+  -webkit-order: initial;
+  -ms-flex-order: initial;
+  order: initial;
+}
+
+.tabs label {
+  width: 100%;
+  margin-right: 0;
+  margin-top: 0.2rem;
+}
 }
 /*# sourceMappingURL=style.css.map */
