@@ -126,7 +126,7 @@
       <ul>
         {% for topic, files in eng_topics.items() %}
           <br>
-          <li>{{ topic }}:
+          <li><span style="font-weight: bold; font-size: 21px; color: #00468A;">{{ topic }}</span>:
             <ul>
             {% for file in files %}
               <li>
@@ -147,7 +147,7 @@
       <ul>
         {% for topic, files in fr_topics.items() %}
           <br>
-          <li>{{ topic }}:
+          <li><span style="font-weight: bold; font-size: 21px; color: #00468A;">{{ topic }}</span>:
             <ul>
             {% for file in files %}
               <li>
@@ -172,7 +172,8 @@
         </ul>
     </div>
   </div>
-  <a href="{{ url_for('question_answering') }}" target="_blank" class="btn btn-blue"><button>Go to IT Understanding Form</button></a>
+  <a href="{{ url_for('question_answering') }}" target="_blank">
+    <button class="btn btn-blue" style="border-top-width: 13px; margin-top: 13px;">Go to IT Understanding Form</button></a>
   </div>
 </section>
   

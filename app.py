@@ -97,7 +97,6 @@ def question_answering():
                          ["processus informatique", "accès", "programmes", "données", "gestion des accès", "procédure", "politique de mot de passe", "mot de passe", "changements d'application", "changements", "gestion des changements", "procédure", "acquisition", "développement", "nouveau", "nouveau système", "opérations informatiques", "supervision", "procédures"],
                          ["cybersécurité", "sécurité", "accès", "mot de passe", "personnes", "évaluation", "périodique", "vulnérabilité", "vulnérabilités", "atténuer", "risques potentiels", "risque", "significatif", "impact", "dispositifs", "logiciel de sécurité", "logiciel", "menace", "web", "virus", "attaque", "phishing", "vpn", "cryptage", "autorisé", "divulgation", "authentification", "autorisation", "cloud", "proxy", "cyberattaque", "sensibilisation", "surveillance", "contrôle de vérification", "cybersécurité", "incident", "équipe"]]
     
-    # Define the 23 lists of english tokens describing each of the 23 questions respectively
     # eng_question_tokens =["IT systems used by the entity for financial reporting and operational processes",
     #                       "Information concerning updates or significant changes",
     #                       "IT System Diagram ISD",
@@ -147,6 +146,7 @@ def question_answering():
     #                       "Contrôle de vérification",
     #                       "Équipe de réponse aux incidents de cybersécurité de l'entreprise"]
     
+    # Define the 23 lists of english tokens describing each of the 23 questions respectively
     eng_question_tokens =[["IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system", "procedure", "Windows", "integrator", "oracle", "hms", "osbc", "hotix", "interfacing", "accounting", "purchase", "rh", "sales", "management"],
                           ["update", "change", "development", "system change"],
                           ["procedure", "process", "ISD", "IT system diagram", "diagram", "application", "network", "database", "os", "operating system","process", "IT system", "information system", "financial reporting", "purpose of IT system", "technology layers", "IT gouvernance", "accounting", "business process", "software", "application", "network", "database", "os", "operating system"],
