@@ -6,4 +6,4 @@ An NLP-powered, web aplication that :
 3- Retrieves the necessary information to answer a number of pre-defined questions accordingly  
 
 
-This application is mainly targeted to KPMG IT-auditors who used to struggle while manually performing the "IT understanding" phase. 
+This application is mainly targeted to (company X) IT-auditors who used to struggle while manually performing the IT understanding phase. 
