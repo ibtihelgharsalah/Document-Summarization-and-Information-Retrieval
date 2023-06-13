@@ -101,26 +101,29 @@
       <div class="col-lg-8">
         <div class="content">
 
+          <div class="bg-light">
           <h3 id="section_1">I. Les systèmes IT utilisés par l'entité pour le reporting financier et métiers</h3>
           <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d0')" style="
-          margin-bottom: 13px;">Relevant docs</button>
+          margin-bottom: 13px;">Relevant docs</button></div>
           <div id="d0" style="display: none;">
             <table>
               <tr>
                 <th style="text-align: center;">File Name</th>
-                <thstyle="text-align: center;">Relevance to Section I</th>
+                <th style="text-align: center;">Relevance to Section I</th>
               </tr>
               {% for doc, score in d0 %}
               <tr>
                 <td>{{ doc }}</td>
-                <td><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
+                <td class="text-center"><span style="font-weight: bold; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
               </tr>
               {% endfor %}
             </table>
           </div>
 
+          <div class="bg-light">
           <h3 id="section_2">II. Compréhension des systèmes IT de l' entité</h3>
-          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d1')">Relevant docs</button>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d1')" style="
+          margin-bottom: 13px;">Relevant docs</button></div>
           <div id="d1" style="display: none;">
             <table>
               <tr>
@@ -130,7 +133,7 @@
               {% for doc, score in d1 %}
               <tr>
                 <td>{{ doc }}</td>
-                <td><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
+                <td class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
               </tr>
               {% endfor %}
             </table>
@@ -154,9 +157,9 @@
                     </tr>
                     {% for doc, sec, score in i0 %}
                     <tr>
-                      <td>{{ doc }}</td>
-                      <td>{{ sec }}</td>
-                      <td><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
                     </tr>
                     {% endfor %}
                   </table>
@@ -172,7 +175,21 @@
               <div id="collapse-II2"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-II2" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i1}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i1 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -184,14 +201,30 @@
               <div id="collapse-II3"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-II3" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i2}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i2 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
           </div>
 
+          <div class="bg-light">
           <h3 id="section_3">III. Compréhension de l organisation IT</h3>
-          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d2')">Relevant docs</button>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d2')" style="
+          margin-bottom: 13px;">Relevant docs</button></div>
           <div id="d2" style="display: none;">
             <table>
               <tr>
@@ -201,7 +234,7 @@
               {% for doc, score in d2 %}
               <tr>
                 <td>{{ doc }}</td>
-                <td><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
+                <td class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
               </tr>
               {% endfor %}
             </table>
@@ -215,7 +248,21 @@
               <div id="collapse-III1"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-III1" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i3}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i3 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -227,7 +274,21 @@
               <div id="collapse-III2"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-III2" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i4}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i4 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -239,7 +300,21 @@
               <div id="collapse-III3"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-III3" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i5}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i5 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -251,7 +326,21 @@
               <div id="collapse-III4"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-III4" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i6}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i6 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -263,14 +352,30 @@
               <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i7}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i7 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
           </div>
 
+          <div class="bg-light">
           <h3 id="section_4">IV. Compréhension des process IT de l entité</h3>
-          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d3')">Relevant docs</button>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d3')" style="
+          margin-bottom: 13px;">Relevant docs</button></div>
           <div id="d3" style="display: none;">
             <table>
               <tr>
@@ -280,7 +385,7 @@
               {% for doc, score in d3 %}
               <tr>
                 <td>{{ doc }}</td>
-                <td><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
+                <td class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score*100 }}%</span></td>
               </tr>
               {% endfor %}
             </table>
@@ -295,7 +400,21 @@
               <div id="collapse-IV1"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-IV1" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i8}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i8 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -308,7 +427,21 @@
               <div id="collapse-IV2"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-IV2" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i9}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i9 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -321,7 +454,21 @@
               <div id="collapse-IV3"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-IV3" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i10}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i10 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -334,7 +481,21 @@
               <div id="collapse-IV4"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-IV4" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i11}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i11 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -348,7 +509,21 @@
               <div id="collapse-IV5"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-IV5" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i12}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i12 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -362,7 +537,21 @@
               <div id="collapse-IV6"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-IV6" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i13}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i13 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -377,7 +566,21 @@
             <div id="collapse-IV7"
               class="accordion-collapse collapse border-0 "
               aria-labelledby="heading-IV7" data-bs-parent="#accordionFAQ">
-              <div class="accordion-body py-0 content">{{i14}}
+              <div class="accordion-body py-0 content">
+                <table>
+                  <tr>
+                    <th style="text-align: center;">File Name</th>
+                    <th style="text-align: center;">Section</th>
+                    <th style="text-align: center;">Relevance to the query</th>
+                  </tr>
+                  {% for doc, sec, score in i14 %}
+                  <tr>
+                    <td width="25%">{{ doc }}</td>
+                    <td width="50%">{{ sec }}</td>
+                    <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                  </tr>
+                  {% endfor %}
+                </table>
               </div>
             </div>
           </div>
@@ -390,7 +593,21 @@
             <div id="collapse-IV8"
               class="accordion-collapse collapse border-0 "
               aria-labelledby="heading-IV8" data-bs-parent="#accordionFAQ">
-              <div class="accordion-body py-0 content">{{i15}}
+              <div class="accordion-body py-0 content">
+                <table>
+                  <tr>
+                    <th style="text-align: center;">File Name</th>
+                    <th style="text-align: center;">Section</th>
+                    <th style="text-align: center;">Relevance to the query</th>
+                  </tr>
+                  {% for doc, sec, score in i15 %}
+                  <tr>
+                    <td width="25%">{{ doc }}</td>
+                    <td width="50%">{{ sec }}</td>
+                    <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                  </tr>
+                  {% endfor %}
+                </table>
               </div>
             </div>
           </div>
@@ -403,14 +620,30 @@
             <div id="collapse-IV9"
               class="accordion-collapse collapse border-0 "
               aria-labelledby="heading-IV9" data-bs-parent="#accordionFAQ">
-              <div class="accordion-body py-0 content">{{i16}}
+              <div class="accordion-body py-0 content">
+                <table>
+                  <tr>
+                    <th style="text-align: center;">File Name</th>
+                    <th style="text-align: center;">Section</th>
+                    <th style="text-align: center;">Relevance to the query</th>
+                  </tr>
+                  {% for doc, sec, score in i16 %}
+                  <tr>
+                    <td width="25%">{{ doc }}</td>
+                    <td width="50%">{{ sec }}</td>
+                    <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                  </tr>
+                  {% endfor %}
+                </table>
               </div>
             </div>
           </div>
 
 
+          <div class="bg-light">
           <h3 id="section_5">V. Cybersecurité</h3>
-          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d4')">Relevant docs</button>
+          <button type="button" class="btn btn-blue" onclick="show_relevant_docs('d4')" style="
+          margin-bottom: 13px;">Relevant docs</button></div>
           <div id="d4" style="display: none;">
             <table>
               <tr>
@@ -420,7 +653,7 @@
               {% for doc, score in d4 %}
               <tr>
                 <td>{{ doc }}</td>
-                <td><span style="font-weight: bold; font-size: 16px; text-align: center; color: green;">{{ score*100 }}%</span></td>
+                <td class="text-center"><span style="font-weight: bold; font-size: 16px; text-align: center; color: green;">{{ score*100 }}%</span></td>
               </tr>
               {% endfor %}
             </table>
@@ -434,7 +667,21 @@
               <div id="collapse-V1"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-V1" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i17}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i17 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -447,7 +694,21 @@
               <div id="collapse-V2"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-V2" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i18}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i18 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -460,7 +721,21 @@
               <div id="collapse-V3"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-V3" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i19}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i19 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -473,7 +748,21 @@
               <div id="collapse-V4"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-V4" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i20}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i20 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -486,7 +775,21 @@
               <div id="collapse-V5"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-V5" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i21}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i21 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>
@@ -499,7 +802,21 @@
               <div id="collapse-V6"
                 class="accordion-collapse collapse border-0 "
                 aria-labelledby="heading-V6" data-bs-parent="#accordionFAQ">
-                <div class="accordion-body py-0 content">{{i22}}
+                <div class="accordion-body py-0 content">
+                  <table>
+                    <tr>
+                      <th style="text-align: center;">File Name</th>
+                      <th style="text-align: center;">Section</th>
+                      <th style="text-align: center;">Relevance to the query</th>
+                    </tr>
+                    {% for doc, sec, score in i22 %}
+                    <tr>
+                      <td width="25%">{{ doc }}</td>
+                      <td width="50%">{{ sec }}</td>
+                      <td width="25%" class="text-center"><span style="font-weight: bold; text-align: center; font-size: 16px; color: green;">{{ score }}</span></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
                 </div>
               </div>
             </div>

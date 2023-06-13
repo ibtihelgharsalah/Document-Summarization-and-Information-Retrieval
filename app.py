@@ -14,6 +14,7 @@ from NLP_tasks.relevant_doc_retrieval import find_related_documents
 from NLP_tasks.summarization import eng_summarize, fr_summarize
 from NLP_tasks.info_retrieval import retrieve_info
 from NLP_preprocessing.data_cleaning import eng_clean, fr_clean
+
 app = Flask(__name__)                                                           
 
 # Set the upload folder and files

@@ -9036,6 +9036,7 @@ a.text-black:hover {
   vertical-align: top;
   margin-bottom: 0;
   border: 1px solid #e0e0e0;
+  FONT-SIZE: 14px;
 }
 .content tr:not(:last-child) {
   border-bottom: 1px solid #e0e0e0;
@@ -10233,5 +10234,9 @@ element.style {
   margin-right: 0;
   margin-top: 0.2rem;
 }
+}
+.bg-light{
+  background-color: #80afdc1c !important;
+  padding: 1px 0 17px 25px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -44,7 +44,7 @@ def retrieve_info(eng_files, fr_files, eng_query, fr_query):
         eng_section_terms = [nltk.word_tokenize(eng_section.lower()) for eng_section in eng_sections]
         for eng_section in eng_section_terms:
             eng_relevance_score = len(set(eng_query_terms) & set(eng_section))  # Relevance score for English section
-            if eng_relevance_score >= 1:
+            if eng_relevance_score >= 3:
                 eng_section_str = ' '.join(eng_section)  # Join tokenized English section into a sentence
                 results.append((eng_filename, eng_section_str, eng_relevance_score))
         
@@ -54,7 +54,7 @@ def retrieve_info(eng_files, fr_files, eng_query, fr_query):
         fr_section_terms = [nltk.word_tokenize(fr_section.lower()) for fr_section in fr_sections]
         for fr_section in fr_section_terms:
             fr_relevance_score = len(set(fr_query_terms) & set(fr_section))  # Relevance score for French section
-            if fr_relevance_score >= 1:
+            if fr_relevance_score >= 3:
                 fr_section_str = ' '.join(fr_section)  # Join tokenized French section into a sentence
                 results.append((fr_filename, fr_section_str, fr_relevance_score))
 
